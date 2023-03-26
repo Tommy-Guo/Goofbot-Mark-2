@@ -37,11 +37,16 @@ public class appendix {
     // Values & IDs of intake motors //
     public static int motorRotational = 7;
     public static int motorIntake = 1;
-    public static double intakeSpeedLimit = 0.75;
 
     // Values & IDs of Arm motors //
     public static int motorArm1 = 7;
     public static int motorArm2 = 9;
+
+    // Encoder positions for arm //
+    public static final double level3 = 275;
+    public static final double level2 = 300;
+    public static final double level1 = 355;
+
 }
 
 // *All speed values in this appendix file are in percentages, for example a value of 50 would

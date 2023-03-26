@@ -5,28 +5,27 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
-// import frc.robot.autonomous.autonomous;
-import frc.robot.subsystems.ArmSubsystemM2;
+import frc.robot.autonomous.Autonomous;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
 
 public class Robot extends TimedRobot {
-  private Command m_autonomousCommand;
 
-  // ArmSubsystemM2 armSubsystem;
-  IntakeSubsystem intakeSubsystem;
+  Autonomous autoSystem;
+  ArmSubsystem armSubsystem;
   DriveSubsystem driveSubsystem;
+  IntakeSubsystem intakeSubsystem;
 
   @Override
   public void robotInit() {
 
-    // this.armSubsystem = new ArmSubsystemM2();
-    this.intakeSubsystem = new IntakeSubsystem();
+    this.autoSystem = new Autonomous();
+    this.armSubsystem = new ArmSubsystem();
     this.driveSubsystem = new DriveSubsystem();
+    this.intakeSubsystem = new IntakeSubsystem();
 
     UsbCamera usbCamera = CameraServer.startAutomaticCapture("Main Camera", 0);
 		usbCamera.setResolution(160, 120);
@@ -34,19 +33,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic() {
-    CommandScheduler.getInstance().run();
-  }
-
-  @Override
-  public void disabledInit() {
-  }
-
-  @Override
-  public void disabledPeriodic() {
-  }
-
-  @Override
-  public void disabledExit() {
+    
   }
 
   @Override
@@ -61,7 +48,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
-    // autoSystem.runAuto();
+    autoSystem.runAuto();
   }
 
   @Override
@@ -71,9 +58,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
+
   }
 
   @Override
@@ -85,18 +70,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopExit() {
-  }
 
-  @Override
-  public void testInit() {
-    CommandScheduler.getInstance().cancelAll();
-  }
-
-  @Override
-  public void testPeriodic() {
-  }
-
-  @Override
-  public void testExit() {
   }
 }

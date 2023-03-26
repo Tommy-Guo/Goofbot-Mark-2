@@ -34,11 +34,22 @@ public class DriveSubsystem {
 
         if (gamePad.getRawButton(appendix.buttonX)) {
             if (limelightSubsystem.deltaX() % 1 != 0) {
-                rotationValue = common.map(limelightSubsystem.deltaX(), -25, 25, -0.4, 0.4, 2);
+                rotationValue = map(limelightSubsystem.deltaX(), -25, 25, -0.4, 0.4, 2);
             }
         }
 
         double driveSpeed = 0.8;
         driveBase.curvatureDrive(rotationValue, common.quadraticDrive(-driveValue, driveSpeed), true);
+    }
+
+    private double map(double sourceNumber, double fromA, double fromB, double toA, double toB, int decimalPrecision ) {
+        double deltaA = fromB - fromA;
+        double deltaB = toB - toA;
+        double scale  = deltaB / deltaA;
+        double negA   = -1 * fromA;
+        double offset = (negA * scale) + toA;
+        double finalNumber = (sourceNumber * scale) + offset;
+        int calcScale = (int) Math.pow(10, decimalPrecision);
+        return (double) Math.round(finalNumber * calcScale) / calcScale;
     }
 }

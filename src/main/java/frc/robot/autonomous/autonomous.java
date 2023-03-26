@@ -7,7 +7,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
-public class autonomous {
+public class Autonomous {
     Timer godTimer = new Timer();
 
     WPI_VictorSPX motorArm_01 = new WPI_VictorSPX(appendix.motorArm1);
@@ -27,7 +27,7 @@ public class autonomous {
 
     DifferentialDrive driveBase = new DifferentialDrive(motorsLeft, motorsRight);
 
-    public autonomous() {
+    public Autonomous() {
         intake.setSafetyEnabled(false);
         driveBase.setSafetyEnabled(false);
         godTimer.reset();
