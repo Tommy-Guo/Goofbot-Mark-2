@@ -8,7 +8,7 @@ public class LimelightSubsystem {
 
     private double deltaX;
     
-    public void teleopPeriodic() {
+    public void LimelightPeriodic() {
         NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
         NetworkTableEntry tx = table.getEntry("tx");
 

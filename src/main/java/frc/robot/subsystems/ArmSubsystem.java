@@ -1,7 +1,7 @@
 package frc.robot.subsystems;
 
-import frc.robot.helpers.appendix;
 import frc.robot.helpers.common;
+import frc.robot.helpers.appendix;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
@@ -32,8 +32,8 @@ public class ArmSubsystem {
         secondaryArmMotor.setIdleMode(IdleMode.kBrake);
         secondaryArmMotor.follow(masterArmMotor, true);
 
-        armJointMotorEncoder.setPosition(-1);
         armMotorEncoder.setPosition(-1);
+        armJointMotorEncoder.setPosition(-1);
     }
 
     public void teleopPeriodic() {
@@ -57,6 +57,11 @@ public class ArmSubsystem {
             common.moveToPosition(armTargetPosition, armMotorEncoder.getPosition(), masterArmMotor);
         }
     }
+    private double getArmTrigger() {
+        double rightValue = gamePad.getRawAxis(appendix.triggerRight);
+        double leftValue =  gamePad.getRawAxis(appendix.triggerLeft);
+        return (rightValue > leftValue ? rightValue * -1 : leftValue);
+    }
 
     public void JointPeriodic() {
         if (Math.abs(getArmTrigger()) > 0.05) {
@@ -67,9 +72,25 @@ public class ArmSubsystem {
         }
     }
 
-    private double getArmTrigger() {
-        double rightValue = gamePad.getRawAxis(appendix.triggerRight);
-        double leftValue =  gamePad.getRawAxis(appendix.triggerLeft);
-        return (rightValue > leftValue ? rightValue * -1 : leftValue);
+    public void JointPeriodicAutoLeveling() {
+        // imaginary values until tested.
+        final double armstartPoint = 0;
+        final double armendPoint = 360;
+
+        final double joinStart = 0;
+        final double jointEnd = 300;
+
+        final double tuckZoneStart = 120;
+        final double tuckZoneEnd = 180;
+
+        final double tuckedPosition = 180;
+
+        if (armMotorEncoder.getPosition() > tuckZoneStart && armMotorEncoder.getPosition() < tuckZoneEnd) {
+            common.moveToPosition(tuckedPosition, armJointMotorEncoder.getPosition(), armJointMotor);
+        } else {
+            double output = common.map(armMotorEncoder.getPosition(), armstartPoint, armendPoint, joinStart, jointEnd);
+            common.moveToPosition(output, armJointMotorEncoder.getPosition(), armJointMotor);
+        }
     }
+
 }

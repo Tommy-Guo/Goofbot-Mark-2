@@ -6,48 +6,43 @@ package frc.robot.helpers;
 public class appendix {
 
     // Values & IDs of controllers //
-    public static int driveControllerID = 0;
-    public static int actionControllerID = 0;
+    public static final int driveControllerID = 0;
 
-    // Values & IDs of inputs on controller //
-    public static int buttonX = 3;
-    public static int buttonY = 4;
-    public static int buttonA = 1;
-    public static int buttonB = 2;
- 
-    public static int buttonRight = 5;
-    public static int buttonLeft = 6;
- 
-    public static int triggerLeft = 2;
-    public static int triggerRight = 3;
- 
-    public static int axisLeftX = 0;
-    public static int axisLeftY = 1;
-    public static int axisRightX = 4;
-    public static int axisRightY = 5;
+    // Values & IDfinal s of inputs on controller //
+    public static final int buttonX = 3;
+    public static final int buttonY = 4;
+    public static final int buttonA = 1;
+    public static final int buttonB = 2;
 
-    // Values & IDs of drive base motors //
-    public static int motorLeft1 = 3;
-    public static int motorLeft2 = 5;
-    public static int motorRight1 = 4;
-    public static int motorRight2 = 6;
+    public static final int buttonRight = 5;
+    public static final int buttonLeft = 6;
  
-    public static double rotateSpeed = 0.3;
- 
-    // Values & IDs of intake motors //
-    public static int motorRotational = 7;
-    public static int motorIntake = 1;
+    public static final int triggerLeft = 2;
+    public static final int triggerRight = 3;
 
-    // Values & IDs of Arm motors //
-    public static int motorArm1 = 7;
-    public static int motorArm2 = 9;
+    public static final int axisLeftX = 0;
+    public static final int axisLeftY = 1;
+    public static final int axisRightX = 4;
+    public static final int axisRightY = 5;
+
+    // Values & IDfinal s of drive base motors //
+    public static final int motorLeft1 = 3;
+    public static final int motorLeft2 = 5;
+    public static final int motorRight1 = 4;
+    public static final int motorRight2 = 6;
+
+    // Values & IDfinal s of intake motor //
+    public static final int motorIntake = 1;
+
+    // Values & IDfinal s of Arm motors //
+    public static final int motorArm1 = 7;
+    public static final int motorArm2 = 9;
+
+    // Values & IDfinal s of Arm joint motor //
+    public static final int motorJoint = 7;
 
     // Encoder positions for arm //
-    public static final double level3 = 275;
-    public static final double level2 = 300;
     public static final double level1 = 355;
-
+    public static final double level2 = 300;
+    public static final double level3 = 275;
 }
-
-// *All speed values in this appendix file are in percentages, for example a value of 50 would
-// denote 50% of the respective motor's speed.
