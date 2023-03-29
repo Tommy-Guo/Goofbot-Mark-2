@@ -11,6 +11,12 @@ public class IntakeSubsystem {
     WPI_VictorSPX intakeMotor = new WPI_VictorSPX(appendix.motorIntake);
 
     public void teleopPeriodic() {
-        intakeMotor.set(gamePad.getRawButton(appendix.buttonRight) ? 1 : -1);
+        if (gamePad.getRawButton(appendix.buttonRight)) {
+            intakeMotor.set(-0.85);
+        } else if (gamePad.getRawButton(appendix.buttonLeft)) {
+            intakeMotor.set(0.85);
+        } else {
+            intakeMotor.set(0);
+        }
     }
 }

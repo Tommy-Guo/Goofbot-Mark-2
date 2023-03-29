@@ -26,23 +26,28 @@ public class appendix {
     public static final int axisRightY = 5;
 
     // Values & IDfinal s of drive base motors //
-    public static final int motorLeft1 = 3;
-    public static final int motorLeft2 = 5;
-    public static final int motorRight1 = 4;
-    public static final int motorRight2 = 6;
+    public static final int motorLeft1 = 1;
+    public static final int motorLeft2 = 2;
+    public static final int motorRight1 = 3;
+    public static final int motorRight2 = 4;
 
     // Values & IDfinal s of intake motor //
-    public static final int motorIntake = 1;
+    public static final int motorIntake = 5;
 
     // Values & IDfinal s of Arm motors //
-    public static final int motorArm1 = 7;
-    public static final int motorArm2 = 9;
+    public static final int motorArm1 = 6;
+    public static final int motorArm2 = 7;
 
     // Values & IDfinal s of Arm joint motor //
-    public static final int motorJoint = 7;
+    public static final int motorJoint = 8;
 
     // Encoder positions for arm //
-    public static final double level1 = 355;
-    public static final double level2 = 300;
-    public static final double level3 = 275;
+    public static final double armLevel1 = 335;
+    public static final double armLevel2 = 300;
+    public static final double armLevel3 = 270;
+
+    // Encoder positions for joint //
+    public static final double jointLevel1 = 68;
+    public static final double jointLevel2 = 55;
+    public static final double jointLevel3 = 50;
 }

@@ -4,8 +4,8 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.autonomous.Autonomous;
+import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -37,16 +37,6 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void autonomousInit() {
-    // m_autonomousCommand = m_robotContainer.getAutonomousCommand();
-
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.schedule();
-    // }
-    // autoSystem = new autonomous();
-  }
-
-  @Override
   public void autonomousPeriodic() {
     autoSystem.runAuto();
   }
@@ -63,7 +53,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    // this.armSubsystem.teleopPeriodic();
+    this.armSubsystem.teleopPeriodic();
     this.intakeSubsystem.teleopPeriodic();
     this.driveSubsystem.teleopPeriodic();
   }
